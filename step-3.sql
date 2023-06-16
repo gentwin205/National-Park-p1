@@ -69,11 +69,31 @@ where to_date between '2023-06-01' and '2023-06-30'
 ;
 
 -- select all columns from reservation where name includes 'Reservation' (expected: 23 rows)
-select
-
+select name 
+from reservation 
+where name like '%Reservation%';
 -- select the total number of reservations in the reservation table (expected: around 40)
+select count(*)
+from reservation
 
 -- select reservation id, site id, name of the reservations where site id is in the list 9, 20, 24, 45, 46 (expected: 16 rows)
+select reservation_id, site_id, name
+from reservation
+where site_id IN (9,20,24,45,46);
+
 
 -- select the date and number of reservations for each date ordered by from_date in ascending order (expected: 24 rows, starting from the earliest date)
+
+select from_date, count(from_date)
+from reservation
+group by from_date
+order by from_date asc
+;
+--look back
+
+
+select *
+from park
+
+
 

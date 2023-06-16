@@ -10,11 +10,17 @@
   ------------------------------
 */
 
+insert into park (name, location, establish_date, area, visitors, description)
+values('Ohiopyle State Park','Pennsylvania','1965-01-01', 19052, 1000000, 'Ohiopyle State Park is a Pennsylvania state park on 19,052 acres in Dunbar, Henry Clay and Stewart Townships, Fayette County, Pennsylvania in the United States. The focal point of the park is the more than 14 miles of the Youghiogheny River Gorge that passes through the park.');
 
 /*
   STEP TWO: You just found out that there was an error with the park data. Please update the park visitors to 1.5 million anually.
 
 */
+
+update park 
+set visitors = (1500000)
+where name = 'Ohiopyle State Park';
 
 
 /*
