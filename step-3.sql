@@ -2,27 +2,46 @@
 -----------------------------------------------
 
 -- select name and daily fee of all campgrounds (expected: 7 rows)
+select c.name, daily_fee
+from park p
+join campground c on p.park_id = c.park_id;
 
 -- select name and daily fee of all campgrounds ordered by campground name (expected: 7 rows, starting with "Blackwoods")
+select c.name, daily_fee
+from park p
+join campground c on p.park_id = c.park_id
+order by  c.name asc;
 
 -- select name, open from month, open to month, and daily fee of the campgrounds where daily fee is less than $100 (expected: 5 rows)
-
+select name, open_from_mm, open_to_mm, daily_fee
+from campground
+where daily_fee < '$100.00';
 -- select name and daily fee of the campgrounds where the campground is open all year long (expected: 4 rows)
-
+select name, daily_fee
+from campground
+where open_from_mm = 1 and open_to_mm = 12;
 
 -- PARK TABLE
 -----------------------------------------------
 
 -- select name and description of all parks order by established date in descending order (expected: 3 rows, startng with "Cuyahoga Valley")
-
+select name, description
+from park
+order by establish_date desc;
 -- select name and description of all parks in Ohio (expected: 1 row)
-
+select name, description
+from park
+where location = 'Ohio';
 -- select name and description of all parks NOT in Ohio (expected: 2 rows)
-
+select name, description
+from park
+where location != 'Ohio';
 -- select the total number of visitors for all parks (expected: around 6 million)
-
+select sum(visitors)
+from park;
 -- select the average number of visitors for all parks (expected: around 2 million)
-
+select avg(visitors)
+from park;
 
 -- SITE TABLE
 -----------------------------------------------
