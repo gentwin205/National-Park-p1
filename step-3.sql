@@ -48,9 +48,14 @@ from park;
 
 -- select all columns from site where utilities is true and order by max RV length with the largest coming first
 -- (expected: 26 rows, starting with 35-foot max_rv_length)
-
+select *
+from site 
+where utilities='true'
+order by max_rv_length desc;
 -- select total number of sites that have utilities hook up (expected: around 25)
-
+select count(*)
+from site 
+where utilities = 'true';
 
 -- RESERVATION TABLE
 -----------------------------------------------
@@ -58,8 +63,13 @@ from park;
 -- select reservation id, site id, name, from date, to date of the reservations where the checkin date 
 --	is between the first and last day of the current month (hard coded month is ok) 
 -- (expected row count may vary, should be no more than 44)
+select reservation_id, site_id, name, from_date, to_date 
+from reservation
+where to_date between '2023-06-01' and '2023-06-30'  
+;
 
 -- select all columns from reservation where name includes 'Reservation' (expected: 23 rows)
+select
 
 -- select the total number of reservations in the reservation table (expected: around 40)
 
