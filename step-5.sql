@@ -33,7 +33,8 @@ where name = 'Ohiopyle State Park';
   daily_fee: 95.00
   ------------------------------------------------------------
 */
-
+insert into campground ( park_id, name, open_from_mm, open_to_mm, daily_fee)
+values((select park_id from park where name ='Ohiopyle State Park'), 'Youghiogheny', 1, 12, '$95.00');
 
 /*
  STEP FOUR: Insert 3 new sites with the following data:
@@ -43,8 +44,14 @@ where name = 'Ohiopyle State Park';
   site_number: 625, campground_id: (use the id of the new campground you just added)
  ------------------------------------------------------------
 */
+insert into site (site_number, campground_id)
+values (623, (select campground_id from campground where name = 'Youghiogheny'));
 
+insert into site (site_number, campground_id)
+values (624, (select campground_id from campground where name = 'Youghiogheny'));
 
+insert into site (site_number, campground_id)
+values (625, (select campground_id from campground where name = 'Youghiogheny'));
 /*
  STEP FIVE: Insert 3 reservations, 1 for each site with the following data:
 ------------------------------------------------------------------------------------
