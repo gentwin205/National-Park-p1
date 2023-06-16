@@ -14,7 +14,7 @@ Before writing any queries, you need to review each table. Focus on understandin
 
 Here is an entity relationship diagram (ERD) of the database schema. Following the diagram are details about each table:
 
-![Campground ERD](database/campground_erd.drawio.png)
+![Campground ERD](database/campground_ERD.drawio.png)
 
 ### Park table
 
