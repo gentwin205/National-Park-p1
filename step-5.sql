@@ -60,16 +60,25 @@ values (625, (select campground_id from campground where name = 'Youghiogheny'))
   site_id: (the site_id for site number 625 that you just created), name: Kent Family, from_date: today + 12 days, to_date: today + 20 days
 ------------------------------------------------------------------------------------
 */
+insert into reservation (site_id, name, from_date, to_date)
+values ((select site_id from site where site_number = 623), 'Wayne Family', '2023-06-29', '2023-07-09')
 
+insert into reservation (site_id, name, from_date, to_date)
+values ((select site_id from site where site_number = 624), 'Parker Family', '2023-06-30', '2023-07-09')
 
+insert into reservation (site_id, name, from_date, to_date)
+values ((select site_id from site where site_number = 625), 'Kent Family', '2023-07-01', '2023-07-09');
 /*
  STEP SIX: The Wayne Family called and asked if they could change their reservation to today. Update the from_date to today and the to_date to a week from today.
 
  */
-
+update reservation set from_date = '2023-06-19', to_date = '2023-06-26'
+where name = 'Wayne Family';
 
 /*
  STEP SEVEN: The Kent family called and they would like to cancel their reservation. Delete the reservation for Kent Family.
 
 */
+delete from reservation
+where name = 'Kent Family';
 
